@@ -32,6 +32,9 @@ const ConfigParser = require('configparser')
 const { exec } = require('child_process')
 
 const config = new ConfigParser()
+config.read('config.conf')
+const appPort = config.get('api', 'port')
+const prefix = config.get('api', 'prefix')
 
 app.use(helmet())
 app.use(express.json())
@@ -73,8 +76,8 @@ app.use(
   serveIndex('public/files', { icons: true })
 )
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log(`Server is running on port ${process.env.PORT || 3000}`)
+app.listen(appPort, () => {
+  console.log(`Server is running on port ${appPort}`)
 })
 
 app.get('/checkConfig', async (req, res) => {
