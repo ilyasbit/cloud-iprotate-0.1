@@ -1,3 +1,8 @@
+#secret variables
+.env
+config.conf
+logs/*
+public/*
 # Logs
 logs
 *.log
