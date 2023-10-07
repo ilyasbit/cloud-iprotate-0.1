@@ -28,7 +28,7 @@ async function parseConfig(req) {
     configration.configName = confList[i]
     configration.socks5Port = socks5Port
     configration.httpPort = httpPort
-    const hostUrl = req.protocol + '://' + req.get('host')
+    const hostUrl = req.protocol + '://' + req.get('Hostname')
     const changeIpUrl = new URL(hostUrl)
     if (configType == 'civo') {
       changeIpUrl.pathname = `${apiConfig.prefix}/civo/newip`
